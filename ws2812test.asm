@@ -131,40 +131,55 @@ loop:
 	idxm a, dither_p                    ; 4 + 2
 	add brightness, a                   ; 6 + 1
 	inc dither_p                        ; 7 + 1
-	mov a, #2                           ; 8 + 1
-	nop
-	back:
+	nop2                                ; 8 + 2
+
 	               set1 pa, #PINOUT     ; 0 + 1
 	nop2                                ; 1 + 2
 	               set0 pa, #PINOUT     ; 3 + 1
 	nop2                                ; 4 + 2
-	nop                                 ; 6 + 1
-	dzsn a                              ; 7 + 1
-    goto back                           ; 8 + 2
-	nop                                 ; 9 + 1
+	nop2                                ; 6 + 2
+	nop2                                ; 8 + 2
 
 	               set1 pa, #PINOUT     ; 0 + 1
-	mov a, #2                           ; 1 + 1
-	t1sn brightness, #7                 ; 2 + 1
+	nop2                                ; 1 + 2
 	               set0 pa, #PINOUT     ; 3 + 1
 	nop2                                ; 4 + 2
-	nop                                 ; 6 + 1
-    back2:
-	               set0 pa, #PINOUT     ; 7 + 1
-	nop2                                ; 8 + 2
-	               set1 pa, #PINOUT     ; 0 + 1
-	sl brightness                       ; 1 + 1
-	t1sn brightness, #7                 ; 2 + 1
-	               set0 pa, #PINOUT     ; 3 + 1
-	dzsn a                              ; 4 + 2
-	goto back2                          ; 6 + 1
-    nop
-	               set0 pa, #PINOUT     ; 7 + 1
+	nop2                                ; 6 + 2
 	nop2                                ; 8 + 2
 
 	               set1 pa, #PINOUT     ; 0 + 1
 	nop                                 ; 1 + 1
+	t1sn brightness, #7                 ; 2 + 1
+	               set0 pa, #PINOUT     ; 3 + 1
+	nop2                                ; 4 + 2
+    nop                                 ; 6 + 1
+	               set0 pa, #PINOUT     ; 7 + 1
+	nop2                                ; 8 + 2
+
+
+	               set1 pa, #PINOUT     ; 0 + 1
+	nop                                 ; 1 + 1
 	t1sn brightness, #6                 ; 2 + 1
+	               set0 pa, #PINOUT     ; 3 + 1
+	nop2                                ; 4 + 2
+    nop                                 ; 6 + 1
+	               set0 pa, #PINOUT     ; 7 + 1
+	nop2                                ; 8 + 2
+
+
+	               set1 pa, #PINOUT     ; 0 + 1
+	nop                                 ; 1 + 1
+	t1sn brightness, #5                 ; 2 + 1
+	               set0 pa, #PINOUT     ; 3 + 1
+	nop2                                ; 4 + 2
+    nop                                 ; 6 + 1
+	               set0 pa, #PINOUT     ; 7 + 1
+	nop2                                ; 8 + 2
+
+
+	               set1 pa, #PINOUT     ; 0 + 1
+	nop                                 ; 1 + 1
+	t1sn brightness, #4                 ; 2 + 1
 	               set0 pa, #PINOUT     ; 3 + 1
 	dzsn bytecount                      ; 4 + 1
 	goto loop                           ; 5 + 2
