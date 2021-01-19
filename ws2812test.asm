@@ -118,7 +118,7 @@ loop:
 	mov a, r                            ; 1 + 1
 	mov wave_p, a                       ; 2 + 1
 	               set0 pa, #PINOUT     ; 3 + 1
-	add a, #106                         ; 4 + 1
+	add a, #99                          ; 4 + 1
 	mov r, a                            ; 5 + 1
 	ldsptl                              ; 6 + 2
 	mov brightness, a                   ; 8 + 1
