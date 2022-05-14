@@ -1,7 +1,7 @@
 
-TARGETS=ws2812test-pdk14.ihx ws2812test-pdk13.ihx
+TARGETS=toggle-pdk14.ihx toggle-pdk13.ihx
 CLEAN=$(TARGETS)
-DEPS=map.asm pdk.asm
+DEPS=#pdk.asm
 
 AS13=sdaspdk13
 AS14=sdaspdk14
@@ -12,10 +12,10 @@ clean:
 	-rm $(CLEAN)
 
 %-pdk13.rel: %.asm $(DEPS)
-	$(AS13) -s -o -l $@ $<
+	$(AS13) -Isys/13 -s -o -l $@ $<
 
 %-pdk14.rel: %.asm $(DEPS)
-	$(AS14) -s -o -l $@ $<
+	$(AS14) -Isys/14 -s -o -l $@ $<
 
 %.ihx: %.rel
 	sdldpdk -muwx -i $@ -Y $< -e
